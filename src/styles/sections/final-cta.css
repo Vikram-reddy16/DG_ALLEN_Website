@@ -1,0 +1,11 @@
+/* FINAL CTA */
+.final{text-align:center}
+.final .box{background:var(--surface);border:1px solid var(--line2);border-radius:26px;padding:clamp(40px,7vw,70px) 32px;position:relative;overflow:hidden}
+.final .box .g1{position:absolute;left:50%;top:-40%;width:520px;height:520px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(224,43,43,.2),transparent 66%)}
+.final h2{font-size:clamp(28px,4vw,44px);font-weight:700;max-width:20ch;margin:0 auto 14px;position:relative}
+.final p{color:var(--mist);font-size:17px;max-width:46ch;margin:0 auto 28px;position:relative}
+.final .hcta{justify-content:center;position:relative;opacity:1;animation:none;transform:none}
+.final .addr{display:inline-flex;gap:8px;align-items:center;margin-top:26px;font-style:normal;position:relative;font-size:14px;color:var(--dim)}
+.final .addr svg{width:16px;height:16px;flex:none;color:var(--red-bright)}
+.final .addr a{color:var(--mist);text-decoration:none;transition:color .2s}
+.final .addr a:hover{color:#fff}

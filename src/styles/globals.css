@@ -1,0 +1,15 @@
+/* DG-ALLEN global stylesheet — import order matters (later files can override earlier ones).
+   Tailwind preflight is intentionally not imported so browser defaults match the original design. */
+
+@import "./base.css";
+@import "./layout/navbar.css";
+@import "./sections/common.css";
+@import "./sections/hero.css";
+@import "./sections/services.css";
+@import "./sections/process.css";
+@import "./sections/industries.css";
+@import "./sections/stats.css";
+@import "./sections/audiences.css";
+@import "./sections/final-cta.css";
+@import "./layout/footer.css";
+@import "./pages/careers.css";
