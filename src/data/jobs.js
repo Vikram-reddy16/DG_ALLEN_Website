@@ -1,0 +1,215 @@
+// Dummy job data for the careers UI. The shape mirrors the planned Supabase `jobs` table
+// (camelCase here; map snake_case columns in src/lib/jobs.js when the backend lands).
+
+export const WORK_AUTH = [
+  { code: "USC", label: "US Citizen" },
+  { code: "GC", label: "Green Card" },
+  { code: "GC-EAD", label: "GC-EAD" },
+  { code: "H1B", label: "H-1B" },
+  { code: "H4-EAD", label: "H4-EAD" },
+  { code: "OPT/CPT", label: "OPT / CPT" },
+  { code: "TN", label: "TN" },
+];
+
+export const LEVELS = [
+  { id: "entry", label: "Entry level", range: "0–2 yrs", min: 0, max: 2 },
+  { id: "mid", label: "Mid level", range: "3–6 yrs", min: 3, max: 6 },
+  { id: "senior", label: "Senior", range: "7–10 yrs", min: 7, max: 10 },
+  { id: "lead", label: "Lead / Principal", range: "10+ yrs", min: 11, max: Infinity },
+];
+
+export const WORKPLACES = ["Remote", "Hybrid", "Onsite"];
+export const ENGAGEMENTS = ["W2", "C2C", "1099", "Full-time"];
+export const TAX_TERMS = ["W2", "C2C", "1099", "Full-time", "Any"];
+
+function slugify(s) {
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+// city/region are null for remote roles.
+const RAW_JOBS = [
+  {
+    id: "JAV-418", title: "Senior Java Developer", category: "Software Engineering", experienceYears: 8,
+    city: "Dallas", region: "TX", workplace: "Hybrid", engagement: ["C2C", "W2"],
+    pay: { min: 60, max: 72, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC", "GC-EAD", "H1B", "TN"], postedAt: "2026-11-12",
+    skills: ["Java", "Spring Boot", "Microservices", "AWS", "Kafka", "REST"],
+    summary: "Build and scale backend services for a Fortune-500 financial platform. You’ll own core microservices end-to-end and mentor two mid-level engineers.",
+    responsibilities: ["Design, build and maintain Java/Spring Boot microservices in a high-throughput environment", "Own services from API design through deployment and on-call support", "Partner with architects on event-driven patterns using Kafka", "Review code and mentor mid-level developers"],
+    requirements: ["7+ years of hands-on Java, with strong Spring Boot", "Production experience with microservices and REST APIs", "AWS (ECS/EKS, S3, RDS) and CI/CD pipelines", "Solid grasp of SQL and relational data modeling"],
+    niceToHave: ["Kafka or other event streaming", "Financial-services domain exposure"],
+  },
+  {
+    id: "RCT-307", title: "React Front-End Developer", category: "Software Engineering", experienceYears: 4,
+    city: null, region: null, workplace: "Remote", engagement: ["W2", "C2C"],
+    pay: { min: 50, max: 62, unit: "hr" }, duration: "6-month contract-to-hire",
+    workAuth: ["USC", "GC", "H1B", "OPT/CPT"], postedAt: "2026-11-10",
+    skills: ["React", "TypeScript", "Redux", "Jest", "Tailwind"],
+    summary: "Craft the candidate-facing UI for a healthcare scheduling product. Fully remote team with strong design partnership.",
+    responsibilities: ["Build accessible, responsive React components in TypeScript", "Collaborate with designers to turn Figma into production UI", "Write unit and integration tests with Jest/RTL", "Improve performance and Core Web Vitals"],
+    requirements: ["4+ years building React apps in production", "Strong TypeScript and modern state management", "Comfort with REST/GraphQL integration", "Eye for accessibility (WCAG) and detail"],
+    niceToHave: ["Next.js", "Design-system experience"],
+  },
+  {
+    id: "DAT-512", title: "Data Engineer", category: "Data & AI", experienceYears: 7,
+    city: "Charlotte", region: "NC", workplace: "Hybrid", engagement: ["C2C", "W2"],
+    pay: { min: 62, max: 75, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC", "GC-EAD", "H1B"], postedAt: "2026-11-13",
+    skills: ["Python", "Spark", "Snowflake", "Airflow", "SQL", "dbt"],
+    summary: "Own the data platform powering analytics for a national retailer — batch and streaming pipelines into Snowflake.",
+    responsibilities: ["Design and operate ETL/ELT pipelines with Airflow and dbt", "Model data in Snowflake for analytics and ML consumers", "Tune Spark jobs for cost and performance", "Build data-quality and observability checks"],
+    requirements: ["6+ years in data engineering", "Strong Python and advanced SQL", "Hands-on Snowflake and Spark", "Orchestration with Airflow or similar"],
+    niceToHave: ["dbt", "Streaming (Kafka/Kinesis)"],
+  },
+  {
+    id: "MLE-233", title: "Machine Learning Engineer", category: "Data & AI", experienceYears: 6,
+    city: null, region: null, workplace: "Remote", engagement: ["C2C", "W2", "1099"],
+    pay: { min: 70, max: 85, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC", "H1B"], postedAt: "2026-11-08",
+    skills: ["Python", "PyTorch", "MLOps", "SageMaker", "Docker"],
+    summary: "Take models from notebook to production for a logistics forecasting team — you’ll own training, serving and monitoring.",
+    responsibilities: ["Productionize ML models with reproducible training pipelines", "Deploy and monitor models on AWS SageMaker", "Build feature pipelines and model-serving APIs", "Partner with data scientists on evaluation"],
+    requirements: ["5+ years in ML engineering or applied ML", "Strong Python and PyTorch or TensorFlow", "MLOps: containers, CI/CD, model monitoring", "AWS SageMaker or equivalent"],
+    niceToHave: ["LLM / RAG experience", "Feature-store tooling"],
+  },
+  {
+    id: "DVO-145", title: "DevOps Engineer", category: "Cloud & DevOps", experienceYears: 5,
+    city: "Austin", region: "TX", workplace: "Hybrid", engagement: ["W2", "C2C"],
+    pay: { min: 58, max: 70, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC", "GC-EAD", "H1B", "TN"], postedAt: "2026-11-11",
+    skills: ["AWS", "Terraform", "Kubernetes", "CI/CD", "Docker", "Jenkins"],
+    summary: "Automate infrastructure and delivery for a SaaS company migrating to Kubernetes.",
+    responsibilities: ["Author and maintain Terraform for AWS infrastructure", "Run and harden EKS clusters", "Build CI/CD pipelines and release automation", "Improve observability and incident response"],
+    requirements: ["5+ years in DevOps/SRE", "Strong AWS and Terraform", "Production Kubernetes experience", "Scripting in Bash/Python"],
+    niceToHave: ["Helm, ArgoCD", "Security/compliance automation"],
+  },
+  {
+    id: "CLA-091", title: "Cloud Architect (AWS)", category: "Cloud & DevOps", experienceYears: 11,
+    city: null, region: null, workplace: "Remote", engagement: ["C2C", "W2"],
+    pay: { min: 80, max: 95, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC"], postedAt: "2026-11-05",
+    skills: ["AWS", "Azure", "Terraform", "Landing Zone", "Networking"],
+    summary: "Set cloud strategy and reference architecture for an enterprise multi-account AWS migration.",
+    responsibilities: ["Define landing-zone, networking and security architecture", "Lead well-architected reviews across teams", "Guide cost optimization and governance", "Mentor platform engineers"],
+    requirements: ["10+ years in infrastructure, 5+ in cloud architecture", "Deep AWS (multi-account, networking, security)", "IaC at scale with Terraform", "Stakeholder and roadmap leadership"],
+    niceToHave: ["Azure or GCP", "AWS Professional certification"],
+  },
+  {
+    id: "QAA-276", title: "QA Automation Engineer", category: "Quality Assurance", experienceYears: 4,
+    city: "Jersey City", region: "NJ", workplace: "Onsite", engagement: ["W2", "C2C"],
+    pay: { min: 48, max: 58, unit: "hr" }, duration: "6-month contract",
+    workAuth: ["USC", "GC", "H1B", "OPT/CPT", "H4-EAD"], postedAt: "2026-11-09",
+    skills: ["Selenium", "Java", "Cucumber", "API Testing", "Postman"],
+    summary: "Own test automation for a banking web app — expand coverage and wire tests into the pipeline.",
+    responsibilities: ["Build and maintain Selenium + Cucumber test suites", "Automate API tests and integrate into CI", "Triage failures and partner with developers", "Report coverage and quality metrics"],
+    requirements: ["4+ years in test automation", "Selenium with Java and BDD (Cucumber)", "API testing (REST Assured/Postman)", "CI familiarity (Jenkins/GitLab)"],
+    niceToHave: ["Performance testing (JMeter)", "Banking/finance domain"],
+  },
+  {
+    id: "SWE-100", title: "Software Engineer — New Grad / OPT", category: "Software Engineering", experienceYears: 0,
+    city: null, region: null, workplace: "Remote", engagement: ["Full-time"],
+    pay: { min: 70000, max: 85000, unit: "yr" }, duration: "Full-time · permanent",
+    workAuth: ["OPT/CPT", "USC", "GC"], postedAt: "2026-11-12",
+    skills: ["Java", "Python", "SQL", "Git", "Data Structures"],
+    summary: "Start your US career on a mentored engineering team. Structured onboarding, real projects, and OPT/CPT welcome.",
+    responsibilities: ["Write and test features under senior mentorship", "Fix bugs and learn the codebase and tooling", "Participate in code reviews and standups", "Grow toward owning small modules"],
+    requirements: ["Bachelor’s/Master’s in CS or related", "Fundamentals in one of Java or Python", "Understanding of data structures and SQL", "Eagerness to learn and strong communication"],
+    niceToHave: ["Internship or project portfolio", "Cloud basics (AWS/Azure)"],
+  },
+  {
+    id: "NET-388", title: ".NET Full-Stack Developer", category: "Software Engineering", experienceYears: 5,
+    city: "Phoenix", region: "AZ", workplace: "Hybrid", engagement: ["C2C", "W2"],
+    pay: { min: 55, max: 68, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC", "GC-EAD", "H1B"], postedAt: "2026-11-07",
+    skills: ["C#", ".NET Core", "Angular", "SQL Server", "Azure"],
+    summary: "Build full-stack features for an insurance platform modernizing off legacy .NET.",
+    responsibilities: ["Develop C#/.NET Core APIs and Angular front end", "Migrate legacy modules to modern .NET", "Write SQL Server queries and stored procs", "Collaborate in an Agile team"],
+    requirements: ["5+ years full-stack .NET", "C#, .NET Core, and Angular or React", "SQL Server and solid data modeling", "Azure app services"],
+    niceToHave: ["Azure DevOps", "Insurance domain"],
+  },
+  {
+    id: "SEC-204", title: "Cybersecurity Analyst (Federal)", category: "Cybersecurity", experienceYears: 4,
+    city: "Washington", region: "DC", workplace: "Onsite", engagement: ["W2"],
+    pay: { min: 55, max: 65, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC"], postedAt: "2026-11-11",
+    skills: ["SIEM", "Splunk", "Incident Response", "NIST", "Threat Hunting"],
+    summary: "Monitor and defend a federal agency environment from a SOC. US citizenship required; clearance-eligible preferred.",
+    responsibilities: ["Monitor SIEM alerts and investigate incidents", "Run threat-hunting and containment playbooks", "Document findings to NIST / agency standards", "Support audits and continuous monitoring"],
+    requirements: ["4+ years in SOC / security operations", "Hands-on SIEM (Splunk/Sentinel)", "Incident response fundamentals", "US citizenship (clearance-eligible)"],
+    niceToHave: ["Active clearance", "Security+ / CySA+"],
+  },
+  {
+    id: "SAP-467", title: "SAP FICO Consultant", category: "ERP / SAP", experienceYears: 8,
+    city: null, region: null, workplace: "Remote", engagement: ["C2C", "W2"],
+    pay: { min: 70, max: 85, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC", "H1B"], postedAt: "2026-11-06",
+    skills: ["SAP FICO", "S/4HANA", "Configuration", "Integration"],
+    summary: "Lead FICO configuration for an S/4HANA rollout at a manufacturing client.",
+    responsibilities: ["Configure FICO modules (GL, AP, AR, AA, CO)", "Support S/4HANA migration and testing", "Gather requirements and write functional specs", "Coordinate with technical/ABAP teams"],
+    requirements: ["8+ years SAP FICO configuration", "At least one S/4HANA project", "Strong requirements and documentation skills", "Integration with MM/SD"],
+    niceToHave: ["S/4HANA certification", "Public-sector or manufacturing"],
+  },
+  {
+    id: "BAH-329", title: "Business Analyst — Healthcare", category: "Business & PM", experienceYears: 5,
+    city: "Minneapolis", region: "MN", workplace: "Hybrid", engagement: ["W2", "C2C"],
+    pay: { min: 50, max: 60, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC", "GC-EAD", "H1B"], postedAt: "2026-11-09",
+    skills: ["Agile", "Jira", "EDI", "HL7", "SQL"],
+    summary: "Bridge business and engineering for a payer-side claims modernization program.",
+    responsibilities: ["Elicit and document requirements and user stories", "Map EDI/HL7 data flows and edge cases", "Facilitate Agile ceremonies and backlog grooming", "Validate delivery with UAT"],
+    requirements: ["5+ years as a BA, healthcare preferred", "Agile/Scrum and Jira", "Healthcare data (EDI 837/835, HL7)", "Strong SQL for analysis"],
+    niceToHave: ["Payer / claims background", "Tableau or Power BI"],
+  },
+  {
+    id: "PMO-158", title: "Scrum Master / Project Manager", category: "Business & PM", experienceYears: 7,
+    city: null, region: null, workplace: "Remote", engagement: ["W2", "C2C"],
+    pay: { min: 55, max: 68, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC", "H1B"], postedAt: "2026-11-04",
+    skills: ["Agile", "SAFe", "Jira", "Stakeholder Mgmt"],
+    summary: "Run delivery for two engineering squads on an enterprise modernization initiative.",
+    responsibilities: ["Facilitate Scrum events and remove blockers", "Manage scope, risks, and stakeholder communication", "Track velocity and delivery metrics", "Coach teams toward Agile maturity"],
+    requirements: ["7+ years PM/Scrum Master", "Scrum and ideally SAFe", "Strong stakeholder management", "Jira / Azure DevOps"],
+    niceToHave: ["CSM / PMP", "Scaled-agile environment"],
+  },
+  {
+    id: "SUP-073", title: "IT Help Desk / Desktop Support", category: "IT Support", experienceYears: 1,
+    city: "Columbus", region: "OH", workplace: "Onsite", engagement: ["Full-time"],
+    pay: { min: 45000, max: 55000, unit: "yr" }, duration: "Full-time · permanent",
+    workAuth: ["USC", "GC", "OPT/CPT"], postedAt: "2026-11-13",
+    skills: ["Windows", "Active Directory", "Ticketing", "Office 365"],
+    summary: "First-line IT support for a regional office — a great entry point into US IT.",
+    responsibilities: ["Resolve Tier-1 hardware/software tickets", "Set up and image workstations", "Manage accounts in Active Directory", "Escalate and document in the ticketing system"],
+    requirements: ["1+ year help-desk or desktop support", "Windows 10/11 and Office 365", "Basic Active Directory", "Clear communication and patience"],
+    niceToHave: ["CompTIA A+", "ServiceNow"],
+  },
+  {
+    id: "SFD-311", title: "Salesforce Developer", category: "Software Engineering", experienceYears: 5,
+    city: null, region: null, workplace: "Remote", engagement: ["C2C", "W2", "1099"],
+    pay: { min: 60, max: 72, unit: "hr" }, duration: "12-month contract",
+    workAuth: ["USC", "GC", "GC-EAD", "H1B"], postedAt: "2026-11-08",
+    skills: ["Apex", "LWC", "Salesforce", "SOQL", "Flows"],
+    summary: "Build and customize Salesforce for a nonprofit’s donor and program management.",
+    responsibilities: ["Develop Apex and Lightning Web Components", "Design flows, automation and integrations", "Optimize data model and reporting", "Support releases and admin configuration"],
+    requirements: ["5+ years Salesforce development", "Apex, LWC and SOQL", "Platform configuration and flows", "Integration via REST APIs"],
+    niceToHave: ["Platform Developer I/II cert", "Nonprofit Cloud (NPSP)"],
+  },
+  {
+    id: "PBI-240", title: "Power BI / Data Analyst", category: "Data & AI", experienceYears: 3,
+    city: "Tampa", region: "FL", workplace: "Hybrid", engagement: ["W2", "C2C", "1099"],
+    pay: { min: 45, max: 55, unit: "hr" }, duration: "6-month contract",
+    workAuth: ["USC", "GC", "H1B", "OPT/CPT", "H4-EAD"], postedAt: "2026-11-10",
+    skills: ["Power BI", "SQL", "DAX", "Tableau", "Excel"],
+    summary: "Turn operational data into dashboards leaders actually use at a logistics firm.",
+    responsibilities: ["Build and maintain Power BI dashboards", "Write SQL and DAX for metrics and models", "Partner with stakeholders on requirements", "Ensure data accuracy and documentation"],
+    requirements: ["3+ years in analytics/BI", "Strong SQL and Power BI (DAX)", "Data storytelling and stakeholder skills", "Attention to data quality"],
+    niceToHave: ["Tableau", "Python for analysis"],
+  },
+];
+
+export const JOBS = RAW_JOBS.map((job) => ({
+  ...job,
+  slug: `${slugify(job.title)}-${job.id.toLowerCase()}`,
+}));

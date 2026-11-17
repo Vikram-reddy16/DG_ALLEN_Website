@@ -1,0 +1,9 @@
+/* INDUSTRIES — flat minimal tiles */
+.inds{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+.ind{display:flex;align-items:center;gap:13px;padding:17px 18px;border:1px solid var(--line);border-radius:12px;background:transparent;
+  font-weight:600;font-size:15.5px;color:var(--mist);transition:color .25s,border-color .25s,background .25s}
+.ind:hover{color:#fff;border-color:rgba(242,59,59,.5)}
+.ind svg{width:19px;height:19px;color:var(--red-bright);flex:none}
+
+@media (max-width:980px){.inds{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.inds{grid-template-columns:1fr}}
