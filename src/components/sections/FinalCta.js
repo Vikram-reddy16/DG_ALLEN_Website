@@ -1,6 +1,6 @@
 import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
-import { ADDRESS_LINES, ADDRESS_MAP_URL } from "@/data/content";
+import { ADDRESS_LINES, ADDRESS_MAP_URL, BRAND } from "@/data/content";
 
 export default function FinalCta() {
   return (
@@ -17,6 +17,16 @@ export default function FinalCta() {
             <Button href="/careers/join" variant="ghost" size="lg">
               Submit a resume
             </Button>
+          </div>
+          <div className="contact-row">
+            <a className="addr" href={BRAND.phoneHref}>
+              <Icon name="phone" strokeWidth={1.8} />
+              {BRAND.phone}
+            </a>
+            <a className="addr" href={`mailto:${BRAND.email}`}>
+              <Icon name="mail" strokeWidth={1.8} />
+              {BRAND.email}
+            </a>
           </div>
           <address className="addr">
             <Icon name="pin" strokeWidth={1.8} />

@@ -9,7 +9,9 @@ h1 .w{display:inline-block;opacity:0;transform:translateY(22px);animation:wordin
 @keyframes wordin{to{opacity:1;transform:none}}
 .subline{font-size:clamp(16px,1.7vw,19px);line-height:1.55;color:var(--mist);max-width:48ch;margin:22px 0 32px;opacity:0;transform:translateY(12px);animation:fadeup .7s ease forwards .5s}
 @keyframes fadeup{to{opacity:1;transform:none}}
-.cyc{display:inline-block;width:27ch;max-width:100%;vertical-align:bottom;white-space:nowrap;overflow:hidden;text-align:left;color:var(--red-bright);font-weight:700}
+.cyc-line{display:block;margin-top:8px;white-space:nowrap}
+.cyc-lead{color:#fff;font-weight:700}
+.cyc{display:inline-block;vertical-align:bottom;color:var(--red-bright);font-weight:700}
 .cyc .c-in{display:inline-block;transition:opacity .25s,transform .25s}
 .hcta{display:flex;flex-wrap:wrap;gap:12px;opacity:0;transform:translateY(12px);animation:fadeup .7s ease forwards .7s}
 .terms{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:28px;opacity:0;transform:translateY(12px);animation:fadeup .7s ease forwards .9s}

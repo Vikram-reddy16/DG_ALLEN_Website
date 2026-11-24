@@ -15,6 +15,8 @@ const ORG_JSON_LD = {
   "@type": "Organization",
   name: BRAND.name,
   description: BRAND.tagline,
+  telephone: "+1-704-237-0976",
+  email: BRAND.email,
   address: {
     "@type": "PostalAddress",
     streetAddress: BRAND.address.street,

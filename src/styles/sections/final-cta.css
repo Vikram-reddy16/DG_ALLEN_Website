@@ -9,3 +9,7 @@
 .final .addr svg{width:16px;height:16px;flex:none;color:var(--red-bright)}
 .final .addr a{color:var(--mist);text-decoration:none;transition:color .2s}
 .final .addr a:hover{color:#fff}
+.final .contact-row{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;margin-top:26px;position:relative}
+.final .contact-row .addr{margin-top:0;color:var(--mist);text-decoration:none;font-size:15px;font-weight:600;transition:color .2s}
+.final .contact-row .addr:hover{color:#fff}
+.final .contact-row + .addr{display:flex;justify-content:center;margin-top:14px}

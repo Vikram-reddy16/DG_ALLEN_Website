@@ -38,7 +38,8 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${spaceGrotesk.variable} ${hankenGrotesk.variable} ${spaceMono.variable}`}
     >
-      <body>{children}</body>
+      {/* Browser extensions (e.g. ColorZilla) add attributes to <body> before React loads. */}
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

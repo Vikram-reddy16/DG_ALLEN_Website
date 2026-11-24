@@ -19,6 +19,14 @@ export default function Footer() {
                 ))}
               </a>
             </address>
+            <div className="addr">
+              <Icon name="phone" strokeWidth={1.8} />
+              <a href={BRAND.phoneHref}>{BRAND.phone}</a>
+            </div>
+            <div className="addr">
+              <Icon name="mail" strokeWidth={1.8} />
+              <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
+            </div>
           </div>
           {FOOTER_COLUMNS.map((col) => (
             <div key={col.heading}>

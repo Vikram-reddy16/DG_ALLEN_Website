@@ -228,6 +228,16 @@ select option{background:var(--bg1);color:#fff}
 .cr-trust-list li{display:flex;gap:11px;font-size:14px;line-height:1.5;color:var(--mist)}
 .cr-trust-list b{color:#fff}
 .cr-trust-list svg{width:19px;height:19px;flex:none;color:var(--red-bright);margin-top:1px}
+.cr-skel{display:flex;flex-direction:column;gap:14px;padding:28px 24px}
+.cr-skel-bar{display:block;height:14px;border-radius:8px;background:linear-gradient(90deg,rgba(255,255,255,.05),rgba(255,255,255,.11),rgba(255,255,255,.05));background-size:200% 100%;animation:cr-skel 1.2s ease-in-out infinite}
+.cr-skel-bar.h28{height:28px}.cr-skel-bar.h44{height:44px;border-radius:12px;margin:6px 0 10px}
+.cr-skel-bar.w30{width:30%}.cr-skel-bar.w40{width:40%}.cr-skel-bar.w50{width:50%}.cr-skel-bar.w70{width:70%}.cr-skel-bar.w80{width:80%}.cr-skel-bar.w90{width:90%}.cr-skel-bar.w100{width:100%}
+@keyframes cr-skel{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.cr-skel-bar{animation:none}}
+.cr-trust-contact{display:flex;flex-direction:column;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.cr-trust-contact a{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--mist);text-decoration:none;transition:color .2s}
+.cr-trust-contact a:hover{color:#fff}
+.cr-trust-contact svg{width:17px;height:17px;flex:none;color:var(--red-bright)}
 
 /* ---------- apply form ---------- */
 .cr-form{display:flex;flex-direction:column;gap:18px}

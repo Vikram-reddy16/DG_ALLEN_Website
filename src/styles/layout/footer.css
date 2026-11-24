@@ -1,7 +1,7 @@
 /* FOOTER */
 .foot{background:var(--bg0);color:var(--mist);padding:60px 0 34px;border-top:1px solid var(--line)}
 .foot .top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
-.foot .wm{font-family:var(--f-body);font-weight:800;font-size:19px;color:#fff;letter-spacing:-.3px}
+.foot .wm{font-family:var(--f-body);font-weight:800;font-size:24px;color:#fff;letter-spacing:-.4px}
 .foot .wm b{color:var(--red-bright)}
 .foot p.d{font-size:14px;line-height:1.6;max-width:30ch;margin:14px 0 0;color:var(--dim)}
 .foot h4{color:#fff;font-size:12px;font-weight:700;margin:0 0 16px;font-family:var(--f-mono);letter-spacing:.03em}
@@ -9,6 +9,7 @@
 .foot a{color:var(--mist);text-decoration:none;font-size:14px;transition:color .2s}
 .foot a:hover{color:#fff}
 .foot .addr{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-style:normal}
+.foot .addr + .addr{margin-top:10px}
 .foot .addr svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--red-bright)}
 .foot .addr a{display:flex;flex-direction:column;gap:2px;line-height:1.5}
 .foot .bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:46px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}

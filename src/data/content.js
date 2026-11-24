@@ -11,6 +11,9 @@ export const BRAND = {
     postalCode: "29601",
     country: "United States",
   },
+  phone: "+1(704)237-0976",
+  phoneHref: "tel:+17042370976",
+  email: "info@dgallen.com",
 };
 
 export const ADDRESS_LINES = [

@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/Icon";
+import { BRAND } from "@/data/content";
 
 // Candidate reassurance shown beside full job and talent-network pages.
 export default function TrustCard() {
@@ -25,6 +26,16 @@ export default function TrustCard() {
           </span>
         </li>
       </ul>
+      <div className="cr-trust-contact">
+        <a href={BRAND.phoneHref}>
+          <Icon name="phone" strokeWidth={1.8} />
+          {BRAND.phone}
+        </a>
+        <a href={`mailto:${BRAND.email}`}>
+          <Icon name="mail" strokeWidth={1.8} />
+          {BRAND.email}
+        </a>
+      </div>
     </div>
   );
 }

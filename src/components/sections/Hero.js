@@ -20,8 +20,10 @@ export default function Hero() {
               ))}
             </h1>
             <p className="subline">
-              We place <RoleCycler /> with the companies and vendors who need them — screened, interviewed and onboarded
-              across the U.S.
+              Screened, interviewed and onboarded IT talent for companies and vendors across the U.S.
+              <span className="cyc-line">
+                <span className="cyc-lead">Now placing</span> <RoleCycler />
+              </span>
             </p>
             <div className="hcta">
               <Button href="/careers" size="lg" magnetic>
